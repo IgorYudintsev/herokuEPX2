@@ -1,0 +1,6 @@
+.name{
+    width:100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
