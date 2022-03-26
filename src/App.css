@@ -1,10 +1,10 @@
-.App {
+App {
   /*text-align: center;*/
   display: flex;
   padding: 30px;
 }
 
-.Body{
+.body{
   display: flex;
 }
 

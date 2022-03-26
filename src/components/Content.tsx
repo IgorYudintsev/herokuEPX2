@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Route, Routes} from 'react-router-dom';
 import Todo, {InArrayPropsType} from "./Todo";
-import {Page2} from "./Page2";
-import {Page3} from "./Page3";
+import {Page3} from "./pages/Page3";
+import {Page2} from "./pages/Page2";
+import {Route, Routes} from 'react-router-dom';
 
 type ContentPropsType = {
     skills1: Array<InArrayPropsType>
@@ -21,9 +21,12 @@ export const Content = (props: ContentPropsType) => {
                         cargoOfskills={props.skills1}
                         setCargoOfskills={props.setCargoOfskills}
                     />}/>
+
                     <Route path={'/page2'} element={<Page2/>}/>
                     <Route path={'/page3'} element={<Page3/>}/>
+
                 </Routes>
+
             </div>
         </>
     )

@@ -1,5 +1,6 @@
-.nav {
-    background-color: aquamarine;
-    width: 100px;
+.nav{
+    background-color: #282c34;
+    color: aliceblue;
+    width: 15%;
     text-align: center;
 }
