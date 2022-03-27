@@ -18,6 +18,23 @@ function App() {
     //    setCargoOfskills(cargoOfskills.filter(f=>f.id !==id))
     // }
 
+    const [newFilterValue, setNewVilterValue] = useState("All")
+
+    let FilterValueForcargoOfskills = cargoOfskills
+
+    if (newFilterValue === 'Active') {
+        FilterValueForcargoOfskills =cargoOfskills.filter(element => !element.isDone)
+    }
+    if (newFilterValue === 'Completed') {
+        FilterValueForcargoOfskills = cargoOfskills.filter(element => element.isDone)
+    }
+
+
+    const onBtnClickHandlerForFilter = (filterValue: string) => {
+        console.log(filterValue)
+        setNewVilterValue(filterValue)
+    }
+
     const arrForFooterHeder = ['HEADER', 'FOOTER']
 
     return (
@@ -25,7 +42,12 @@ function App() {
             <Header name={'header'}/>
             <div className={'body'}>
                 <Navigation />
-                <Content skills1={cargoOfskills} cargoOfskills={cargoOfskills} setCargoOfskills={setCargoOfskills} />
+                <Content
+                    onBtnClickHandlerForFilter={onBtnClickHandlerForFilter}
+                    skills1={FilterValueForcargoOfskills}
+                    cargoOfskills={cargoOfskills}
+                    setCargoOfskills={setCargoOfskills}
+                />
             </div>
 
             <Footer name={arrForFooterHeder}/>

@@ -1,5 +1,6 @@
 import React from "react";
 import {MapForOurCargo} from "./MapForOurCargo";
+import styles from "./pages/Page3.module.css";
 
 
 type TodoPropsType = {
@@ -7,6 +8,7 @@ type TodoPropsType = {
     cargo2: number
     cargoOfskills: Array<InArrayPropsType>
     setCargoOfskills: (cargoOfskills: Array<InArrayPropsType>) => void
+    onBtnClickHandlerForFilter:(filterValue: string)=>void
 
 }
 
@@ -23,18 +25,21 @@ const Todo = (props: TodoPropsType) => {
             <h3>{props.cargo2}</h3>
             <MapForOurCargo cargoOfskills={props.cargoOfskills} setCargoOfskills={props.setCargoOfskills}/>
 
-            {/*<ul>*/}
-            {/*    {props.cargoOfskills.map((el, index) => {*/}
-            {/*        return (*/}
-            {/*            <li>*/}
-            {/*                <button>X</button>*/}
-            {/*                <span>{index + 1}</span>*/}
-            {/*                <input type="checkbox" checked={el.isDone}/>*/}
-            {/*                <span>{el.skill}</span>*/}
-            {/*            </li>*/}
-            {/*        )*/}
-            {/*    })}*/}
-            {/*</ul>*/}
+            <div style={{textAlign: "center"}}>
+                <button className={styles.td} onClick={() => {
+                    props.onBtnClickHandlerForFilter("All")
+                }}>All
+                </button>
+                <button className={styles.td} onClick={() => {
+                    props.onBtnClickHandlerForFilter("Active")
+                }}>Active
+                </button>
+                <button className={styles.td} onClick={() => {
+                    props.onBtnClickHandlerForFilter("Completed")
+                }}>Completed
+                </button>
+            </div>
+
         </div>
     )
 }

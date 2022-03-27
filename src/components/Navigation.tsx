@@ -10,7 +10,7 @@ export const Navigation = () => {
         <div className={style.nav}>
             <div><button><NavLink to ={"/page1"}>Todo </NavLink> </button></div>
             <div><button><NavLink to ={"/page2"}>Counter</NavLink> </button></div>
-            <div><button><NavLink to ={"/page3"}>Page3 </NavLink> </button></div>
+            <div><button><NavLink to ={"/page3"}>Bankomat </NavLink> </button></div>
         </div>
     );
 };
