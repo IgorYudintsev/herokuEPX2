@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Button} from "../tags/Button";
 
 export const Page2 = () => {
 
@@ -8,11 +9,13 @@ export const Page2 = () => {
         setCounter(counter+ 1)
     }
 
+
+
     return (
         <div style={{textAlign:'center',marginLeft:'50px'}}>
             <h1>number:{counter}</h1>
-            <button style={{padding:'0 40px'}} onClick={addNumber}>+</button>
-
+            {/*<button style={{padding:'0 40px'}} onClick={addNumber}>+</button>*/}
+            <Button name={"+"} callBack={addNumber}/>
         </div>
 
     );

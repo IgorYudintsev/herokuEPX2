@@ -3,12 +3,15 @@ import Todo, {InArrayPropsType} from "./Todo";
 import {Page3} from "./pages/Page3";
 import {Page2} from "./pages/Page2";
 import {Route, Routes} from 'react-router-dom';
+import {InputPage} from "./pages/InputPage";
 
 type ContentPropsType = {
     skills1: Array<InArrayPropsType>
     cargoOfskills: Array<InArrayPropsType>
     setCargoOfskills: (cargoOfskills: Array<InArrayPropsType>) => void
-    onBtnClickHandlerForFilter:(filterValue: string)=>void
+    // onBtnClickHandlerForFilter:(filterValue: string)=>void
+    changeIsDone:(id:string,eventValue:boolean)=>void
+    addTitle:(newSkill:string)=>void
 }
 
 export const Content = (props: ContentPropsType) => {
@@ -17,15 +20,18 @@ export const Content = (props: ContentPropsType) => {
             <div className="App">
                 <Routes>
                     <Route path={'/page1'} element={<Todo
-                        onBtnClickHandlerForFilter={props.onBtnClickHandlerForFilter}
+                        // onBtnClickHandlerForFilter={props.onBtnClickHandlerForFilter}
                         topic={'What to learn1'}
                         cargo2={100200}
                         cargoOfskills={props.skills1}
                         setCargoOfskills={props.setCargoOfskills}
+                        changeIsDone={props.changeIsDone}
+                        addTitle={props.addTitle}
                     />}/>
 
                     <Route path={'/page2'} element={<Page2/>}/>
                     <Route path={'/page3'} element={<Page3/>}/>
+                    <Route path={'/InputPage'} element={<InputPage/>}/>
 
                 </Routes>
 

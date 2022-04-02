@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from "./Page3.module.css"
+import {Button} from "../tags/Button";
 
 export const Page3 = () => {
     const [money, setMoney] = useState([
@@ -45,18 +46,13 @@ export const Page3 = () => {
 
             </table>
             <div style={{textAlign: "center"}}>
-                <button className={styles.td} onClick={() => {
-                    onBtnClickHandlerForFilter("All")
-                }}>All
-                </button>
-                <button className={styles.td} onClick={() => {
-                    onBtnClickHandlerForFilter("Dollars")
-                }}>USD
-                </button>
-                <button className={styles.td} onClick={() => {
-                    onBtnClickHandlerForFilter("EUR")
-                }}>Euro
-                </button>
+                {/*<button className={styles.td} onClick={() => {onBtnClickHandlerForFilter("All")}}>All</button>
+                <button className={styles.td} onClick={() => {onBtnClickHandlerForFilter("Dollars")}}>USD</button>
+                <button className={styles.td} onClick={() => {onBtnClickHandlerForFilter("EUR")}}>Euro</button>*/}
+                <Button name={"All"} callBack={()=>{onBtnClickHandlerForFilter ("All")}}/>
+                <Button name={"USD"} callBack={()=>{onBtnClickHandlerForFilter ("Dollars")}}/>
+                <Button name={"EUR"} callBack={()=>{onBtnClickHandlerForFilter ("EUR")}}/>
+
             </div>
         </div>
     )
