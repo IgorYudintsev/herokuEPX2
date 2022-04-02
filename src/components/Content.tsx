@@ -8,7 +8,8 @@ type ContentPropsType = {
     skills1: Array<InArrayPropsType>
     cargoOfskills: Array<InArrayPropsType>
     setCargoOfskills: (cargoOfskills: Array<InArrayPropsType>) => void
-    onBtnClickHandlerForFilter:(filterValue: string)=>void
+    // onBtnClickHandlerForFilter:(filterValue: string)=>void
+    changeIsDone:(id:number,eventValue:boolean)=>void
 }
 
 export const Content = (props: ContentPropsType) => {
@@ -17,11 +18,12 @@ export const Content = (props: ContentPropsType) => {
             <div className="App">
                 <Routes>
                     <Route path={'/page1'} element={<Todo
-                        onBtnClickHandlerForFilter={props.onBtnClickHandlerForFilter}
+                        // onBtnClickHandlerForFilter={props.onBtnClickHandlerForFilter}
                         topic={'What to learn1'}
                         cargo2={100200}
                         cargoOfskills={props.skills1}
                         setCargoOfskills={props.setCargoOfskills}
+                        changeIsDone={props.changeIsDone}
                     />}/>
 
                     <Route path={'/page2'} element={<Page2/>}/>
