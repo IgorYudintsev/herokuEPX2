@@ -4,14 +4,16 @@ import {Page3} from "./pages/Page3";
 import {Page2} from "./pages/Page2";
 import {Route, Routes} from 'react-router-dom';
 import {InputPage} from "./pages/InputPage";
+import {Pagination} from "./pages/Pagination";
+import {Napoleon} from "./pages/Napoleon";
+import {Grids} from "./pages/Grids";
 
 type ContentPropsType = {
     skills1: Array<InArrayPropsType>
     cargoOfskills: Array<InArrayPropsType>
     setCargoOfskills: (cargoOfskills: Array<InArrayPropsType>) => void
     // onBtnClickHandlerForFilter:(filterValue: string)=>void
-    changeIsDone:(id:string,eventValue:boolean)=>void
-    addTitle:(newSkill:string)=>void
+    changeIsDone:(id:number,eventValue:boolean)=>void
 }
 
 export const Content = (props: ContentPropsType) => {
@@ -26,12 +28,14 @@ export const Content = (props: ContentPropsType) => {
                         cargoOfskills={props.skills1}
                         setCargoOfskills={props.setCargoOfskills}
                         changeIsDone={props.changeIsDone}
-                        addTitle={props.addTitle}
                     />}/>
 
                     <Route path={'/page2'} element={<Page2/>}/>
                     <Route path={'/page3'} element={<Page3/>}/>
                     <Route path={'/InputPage'} element={<InputPage/>}/>
+                    <Route path={'/Napoleon'} element={<Napoleon/>}/>
+                    <Route path={'/Grids'} element={<Grids/>}/>
+                    <Route path={'/Pagination'} element={<Pagination/>}/>
 
                 </Routes>
 

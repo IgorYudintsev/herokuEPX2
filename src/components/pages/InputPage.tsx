@@ -1,6 +1,7 @@
 import React, {ChangeEvent,KeyboardEvent, useRef, useState} from 'react';
 import {FullInput} from "../tags/FullInput";
 
+
 export const InputPage = () => {
 /*    let myRef = useRef<HTMLInputElement>(null)*/
 
@@ -34,6 +35,7 @@ export const InputPage = () => {
             />
             <button onClick={onClickHandler}>+</button>*/}
             <FullInput callBack={addString}/>
+
             <div>
                 {string.map((element)=>{
                     return(
@@ -44,30 +46,3 @@ export const InputPage = () => {
         </div>
     );
 };
-
-//---------------------------------------------------------------------
-// import React, {ChangeEvent, useState} from 'react';
-//
-// export const InputPage = () => {
-//
-//     let[string, setString]=useState([''])
-//
-//     const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
-//         console.log(e.currentTarget.value)
-//         setString([...string, e.currentTarget.value])
-//     }
-//
-//     const onClickHandler = ()=>{
-//
-//     }
-//
-//     return (
-//         <div style={{marginLeft:"50px"}}>
-//             <input type={"text"} onChange={onChangeHandler} />
-//             <button onClick={onClickHandler}>+</button>
-//             <div>
-//                 {string.map(element=>element)}
-//             </div>
-//         </div>
-//     );
-// };

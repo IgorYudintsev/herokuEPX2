@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {MapForOurCargo} from "./MapForOurCargo";
 import styles from "./pages/Page3.module.css";
-import {Button} from "./tags/Button";
-import Input from "./tags/Input";
+import {ButtonUniversal} from "./tags/ButtonUniversal";
 
 
 type TodoPropsType = {
@@ -11,26 +10,22 @@ type TodoPropsType = {
     cargoOfskills: Array<InArrayPropsType>
     setCargoOfskills: (cargoOfskills: Array<InArrayPropsType>) => void
     // onBtnClickHandlerForFilter:(filterValue: string)=>void
-    changeIsDone: (id: string, eventValue: boolean) => void
-    addTitle: (newSkill: string) => void
+    changeIsDone:(id:number,eventValue:boolean)=>void
 }
 
 export type InArrayPropsType = {
-    id: string,
+    id: number,
     skill: string,
     isDone: boolean
-
 }
 
 const Todo = (props: TodoPropsType) => {
     const [newFilterValue, setNewVilterValue] = useState("All")
-    const [title, setTitle] = useState("")
-    console.log(title)
 
     let FilterValueForcargoOfskills = props.cargoOfskills
 
     if (newFilterValue === 'Active') {
-        FilterValueForcargoOfskills = props.cargoOfskills.filter(element => !element.isDone)
+        FilterValueForcargoOfskills =props.cargoOfskills.filter(element => !element.isDone)
     }
     if (newFilterValue === 'Completed') {
         FilterValueForcargoOfskills = props.cargoOfskills.filter(element => element.isDone)
@@ -40,18 +35,10 @@ const Todo = (props: TodoPropsType) => {
         console.log(filterValue)
         setNewVilterValue(filterValue)
     }
-
-    const addTitleHandler=()=>{
-        props.addTitle(title)
-        setTitle("")
-    }
-
     return (
         <div style={{margin: "20px"}}>
             <h1>{props.topic}</h1>
             <h3>{props.cargo2}</h3>
-            <Input title={title} setTitle={setTitle} callBack={addTitleHandler}/>
-            <Button name={'+'} callBack={addTitleHandler}/>
             <MapForOurCargo
                 cargoOfskills={FilterValueForcargoOfskills}
                 setCargoOfskills={props.setCargoOfskills}
@@ -59,15 +46,21 @@ const Todo = (props: TodoPropsType) => {
             />
 
             <div style={{textAlign: "center"}}>
-                <Button name={"All"} callBack={() => {
-                    onBtnClickHandlerForFilter("ALL")
-                }}/>
-                <Button name={"Active"} callBack={() => {
+               {/* <button className={styles.td} onClick={() => {
+                    onBtnClickHandlerForFilter("All")
+                }}>All
+                </button>
+                <button className={styles.td} onClick={() => {
                     onBtnClickHandlerForFilter("Active")
-                }}/>
-                <Button name={"Completed"} callBack={() => {
+                }}>Active
+                </button>
+                <button className={styles.td} onClick={() => {
                     onBtnClickHandlerForFilter("Completed")
-                }}/>
+                }}>Completed
+                </button>*/}
+                <ButtonUniversal name={"All"} callBack={()=>{onBtnClickHandlerForFilter("ALL")}}/>
+                <ButtonUniversal name={"Active"} callBack={()=>{onBtnClickHandlerForFilter("Active")}}/>
+                <ButtonUniversal name={"Completed"} callBack={()=>{onBtnClickHandlerForFilter("Completed")}}/>
             </div>
 
         </div>

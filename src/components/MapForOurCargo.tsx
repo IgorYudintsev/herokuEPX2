@@ -1,12 +1,12 @@
 import React, {ChangeEvent} from 'react';
 import {InArrayPropsType} from "./Todo";
-import {Button} from "./tags/Button";
+import {ButtonUniversal} from "./tags/ButtonUniversal";
 import {Checkbox} from "./tags/Checkbox";
 
 type MapPropsType = {
     cargoOfskills: Array<InArrayPropsType>
     setCargoOfskills: (cargoOfskills: Array<InArrayPropsType>) => void
-    changeIsDone:(id:string,eventValue:boolean)=>void
+    changeIsDone:(id:number,eventValue:boolean)=>void
 }
 
 export const MapForOurCargo = (props: MapPropsType) => {
@@ -15,11 +15,11 @@ export const MapForOurCargo = (props: MapPropsType) => {
     //  props.removeSkill(id)
     // }
 
-    const removeSkill = (id: string) => {
+    const removeSkill = (id: number) => {
         props.setCargoOfskills(props.cargoOfskills.filter(f => f.id !== id))
     }
 
-    const onChangeCheckHandler = (id:string, eventValue:boolean) =>{
+    const onChangeCheckHandler = (id:number, eventValue:boolean) =>{
         props.changeIsDone(id,eventValue)
     }
 
@@ -31,7 +31,7 @@ export const MapForOurCargo = (props: MapPropsType) => {
                 return (
                     <li key={el.id}>
                        {/* <button onClick={() => {removeSkill(el.id)}}>X</button>*/}
-                        <Button name={"X"} callBack={()=>{removeSkill(el.id)}}/>
+                        <ButtonUniversal name={"X"} callBack={()=>{removeSkill(el.id)}}/>
                         <span>{el.id}</span>
                         {/*<input type="checkbox" checked={el.isDone} onChange={(e)=>onChangeCheckHandler(el.id,e.currentTarget.checked)} />*/}
 
