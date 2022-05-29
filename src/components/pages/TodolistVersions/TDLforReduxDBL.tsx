@@ -11,7 +11,7 @@ import {
 import {useDispatch, useSelector} from "react-redux";
 import {rootReducerType} from "../../store/store";
 import {
-    addRoutineAC, changeCheckBoxStatusRoutineAC,
+    addRoutineAC, addRoutineForWeekDayAC, changeCheckBoxStatusRoutineAC,
     removeRoutineAC,
     removeWeekdaysForRoutinesReducerAC,
     RoutinesForReduxDBL,
@@ -134,6 +134,7 @@ export const TDLforReduxDBL = () => {
         //     ]
         // })
         dispatch(addWeekdaysAC(newWeekDay))
+        dispatch(addRoutineForWeekDayAC(weekdayID3))
     }
 
 

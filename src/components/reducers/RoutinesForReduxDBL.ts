@@ -69,9 +69,14 @@ export const RoutinesForReduxDBL = (state = initialState, action: RoutinesForRed
             return {
                 ...state,
                 [action.payload.weekdaysID]: state[action.payload.weekdaysID].map(el => el.id === action.payload.routineID
-                    ? {...el,isDone:action.payload.value}
+                    ? {...el, isDone: action.payload.value}
                     : el
                 )
+            }
+        }
+        case "ADD-ROUTINE-FOR-WEEKDAY":{
+            return {
+                ...state,[action.payload.newWeekdayID]:[]
             }
         }
         default:
@@ -84,6 +89,7 @@ type RoutinesForReduxDBLTsarType = updateRoutinesACType
     | removeRoutineACType
     | addRoutineACType
     | changeCheckBoxStatusRoutineACType
+    | addRoutineForWeekDayACType
 
 type updateRoutinesACType = ReturnType<typeof updateRoutinesAC>
 export const updateRoutinesAC = (weekdayID: string, routineID: string, newTitle: string) => {
@@ -135,3 +141,10 @@ export const changeCheckBoxStatusRoutineAC = (weekdaysID: string, routineID: str
     } as const
 }
 
+type addRoutineForWeekDayACType = ReturnType<typeof addRoutineForWeekDayAC>
+export const addRoutineForWeekDayAC = (newWeekdayID: string) => {
+    return {
+        type: 'ADD-ROUTINE-FOR-WEEKDAY',
+        payload: {newWeekdayID}
+    } as const
+}
