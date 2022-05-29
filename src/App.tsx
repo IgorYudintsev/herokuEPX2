@@ -7,11 +7,11 @@ import {Navigation} from "./components/Navigation";
 
 function App() {
     let [cargoOfskills, setCargoOfskills] = useState([
-        {id: 1, skill: "HTML&CSS", isDone: true},
-        {id: 2, skill: "Flex", isDone: true},
-        {id: 3, skill: "GRID", isDone: false},
-        {id: 4, skill: "StyledComponents", isDone: true},
-        {id: 5, skill: "JS", isDone: true},
+        {id: 1, skill: "Wake-up", isDone: true},
+        {id: 2, skill: "Morning excercises", isDone: true},
+        {id: 3, skill: "Shower", isDone: false},
+        {id: 4, skill: "Breakfast", isDone: true},
+        {id: 5, skill: "Work", isDone: true},
     ])
 
     const changeIsDone = (id: number, eventValue: boolean) => {
@@ -23,7 +23,7 @@ function App() {
 
     return (
         <div>
-            <Header />
+            <Header/>
             <div className={'body'}>
                 <Navigation/>
                 <Content

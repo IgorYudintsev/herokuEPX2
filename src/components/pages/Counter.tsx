@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ButtonUniversal} from "../tags/ButtonUniversal";
 
-export const Page2 = () => {
+export const Counter = () => {
 
     const [counter, setCounter]=useState(0)
 
